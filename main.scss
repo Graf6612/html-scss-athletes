@@ -1,1 +1,139 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
 
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person__photo {
+  margin-bottom: 2px;
+}
+
+.person__photo-image {
+  border-radius: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+.person__rank {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.person__name {
+  font-weight: bold;
+  color: #2F4F4F ;
+}
+
+.person__sport,
+.person__pay {
+  display: inline; 
+}
+
+.person__pay::before {
+  content: "$"; 
+}
+
+.person__pay::after {
+  content: "M"; 
+}
+
+.person__extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person:hover {
+background-color: #EEEEEE;
+border-radius: 10px;
+}
+
+.people .person {
+  position: relative; 
+}
+
+.people .person .person__rank {
+  position: absolute; 
+  top: 35%; 
+  right: 10px; 
+  transform: translateY(-50%); 
+  background-color: white;
+  color: #8B0000; 
+  border-radius: 50%; 
+  width: 30px; 
+  height: 30px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.people .person__sport,
+.people .person__pay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+  .people .person {
+    transition: transform 2s ease, z-index 2s ease; 
+    z-index: 1;
+  }
+
+  .people .person:hover {
+    transform: scale(1.3);
+    z-index: 2;
+  }
+}
+
+.people .person {
+  transition: transform 1s ease; 
+  z-index: 1;
+}
+
+
+.people .person:hover {
+  transform: scale(1.3);
+  z-index: 2;
+}
+
+
+.people .person:hover img {
+  transform: scale(0.9); 
+  border-radius: 60px; 
+}
+
+.people .person:hover .person__sport,
+.people .person:hover .person__pay {
+  opacity: 1;
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(2 ,200px);
+  grid-gap: 30px; 
+  padding: 30px; 
+  justify-content: center;
+}
+
+@media (min-width:750px) {
+  .people {
+    grid-template-columns: repeat(2 ,200px);
+  }
+}
+
+@media (min-width:1000px) {
+  .people {
+    grid-template-columns: repeat(4 ,200px);
+  }
+}
+
+@media (min-width:1500px) {
+  .people {
+    grid-template-columns: repeat(4 ,200px);
+  }
+}
